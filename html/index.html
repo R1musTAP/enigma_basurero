@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Enigma Basurero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="menu" v-if="show">
+            <div class="header">
+                <h1>Trabajo de Basurero</h1>
+            </div>
+            <div class="content">
+                <div class="options" v-if="screen === 'main'">
+                    <button @click="startSolo">Trabajar Solo</button>
+                    <button @click="startPartner">Trabajar con Compañero</button>
+                </div>
+                <div class="route" v-if="screen === 'route'">
+                    <div class="route-info">
+                        <h2>Ruta Actual</h2>
+                        <div class="progress">
+                            <div :style="{width: progress + '%'}" class="progress-bar"></div>
+                        </div>
+                        <p>Contenedores: {{completed}}/{{total}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
